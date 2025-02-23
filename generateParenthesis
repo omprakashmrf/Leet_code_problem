@@ -1,0 +1,30 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        # add the parenthesis till n 
+        # always maintain open parenthesis is greater then or eqaul to close
+        # return if open and close are eqaul to  
+        stack =[]
+        res = []
+
+        def backtracking(openN, closeN):
+            if openN == closeN==n:
+                res.append("".join(stack))
+                return 
+
+            if openN <n:
+                stack.append("(")
+                backtracking(openN+1, closeN)
+                stack.pop()
+
+            if closeN < openN:
+                stack.append(")")
+                backtracking(openN, closeN+1)
+                stack.pop()
+        
+        backtracking(0, 0)
+        return res
+
+
+        
+
+        
