@@ -1,0 +1,12 @@
+class Solution:
+    def divide(self, dividend: int, divisor: int) -> int:
+        result=dividend /divisor
+        b=str(result).split(".")[0]
+        c=int(b)
+        if c > 2**31 -1:
+            c = 2**31 -1
+
+        return c
+        
+
+        
